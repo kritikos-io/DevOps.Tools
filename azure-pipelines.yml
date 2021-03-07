@@ -54,3 +54,14 @@ stages:
       sonarOnLinux: true
       codecovOnLinux: true
       coverallsOnLinux: true
+  - template: /ci/azure-pipelines/stages/dotnet/02. nuget-deploy.yml@templates
+    parameters:
+      dependsOn:
+        - Build
+        - Test
+      packagesToPush: $(Pipeline.Workspace)/${{ parameters.artifact }}/*.nupkg
+      artifact: nuget
+      environment-pr: Pull Requests
+      environment-release: Release
+      feedName-pr: Kritikos
+      feedName-release: Kritikos
