@@ -56,9 +56,6 @@ stages:
       coverallsOnLinux: true
   - template: /ci/azure-pipelines/stages/dotnet/02. nuget-deploy.yml@templates
     parameters:
-      dependsOn:
-        - Build
-        - Test
       packagesToPush: $(Pipeline.Workspace)/nuget/*.nupkg
       artifact: nuget
       environmentPullRequest: Pull Requests
