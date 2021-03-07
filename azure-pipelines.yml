@@ -61,7 +61,7 @@ stages:
         - Test
       packagesToPush: $(Pipeline.Workspace)/nuget/*.nupkg
       artifact: nuget
-      environment-pr: Pull Requests
-      environment-release: Release
-      feedName-pr: Kritikos
-      feedName-release: Kritikos
+      environmentPullRequest: Pull Requests
+      environmentRelease: Release
+      feedNamePullRequest: Kritikos
+      feedNameRelease: Kritikos
