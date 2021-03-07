@@ -28,6 +28,8 @@ variables:
   - group: Environment
   - group: DotNet
   - group: ApiKeys
+  - name: SONAR_PROJECT
+    value: kritikos-io_DevOps.Tools
 
 stages:
   - template: /ci/azure-pipelines/stages/general/00. gitversion.yml@templates
@@ -41,3 +43,12 @@ stages:
       buildOnLinux: true
       buildOnWindows: true
       packOnLinux: true
+  - template: /ci/azure-pipelines/stages/dotnet/01. test.yml@templates
+    parameters:
+      useCache: false
+      testOnLinux: true
+      testOnWindows: true
+      coverageOnLinux: true
+      sonarOnLinux: true
+      codecovOnLinux: true
+      coverallsOnLinux: true
