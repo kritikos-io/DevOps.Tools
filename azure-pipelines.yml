@@ -37,7 +37,8 @@ stages:
       updateAssemblyInfo: true
   - template: /ci/azure-pipelines/stages/dotnet/00. build.yml@templates
     parameters:
-      useCache: false
+      useCache: true
+      configuration: Release
       updateAssemblyInfo: true
       publishWeb: false
       buildOnLinux: true
@@ -45,7 +46,8 @@ stages:
       packOnLinux: true
   - template: /ci/azure-pipelines/stages/dotnet/01. test.yml@templates
     parameters:
-      useCache: false
+      useCache: true
+      configuration: Debug
       testOnLinux: true
       testOnWindows: true
       coverageOnLinux: true
