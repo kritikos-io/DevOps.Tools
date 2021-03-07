@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Configuration.Transformer": {
+      "commandName": "Project",
+      "commandLineArgs": "deleteKeys --input \"C:\\accs-ac-settings.config\" --prefix \"DELETE_\" --case-insensitive --dry --verbose"
+    }
+  }
+}

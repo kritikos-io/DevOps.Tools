@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31019.35
+MinimumVisualStudioVersion = 15.0.26124.0
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{FD50E51A-E122-4CB8-A635-FC14385E208F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Configuration.Transformer", "src\Configuration.Transformer\Configuration.Transformer.csproj", "{989FC555-4EBE-4B28-9762-1C45EDE5E502}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{1AF1DDF3-2CC6-465F-BD8E-FE3982A5E689}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{989FC555-4EBE-4B28-9762-1C45EDE5E502}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{989FC555-4EBE-4B28-9762-1C45EDE5E502}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{989FC555-4EBE-4B28-9762-1C45EDE5E502}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{989FC555-4EBE-4B28-9762-1C45EDE5E502}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{989FC555-4EBE-4B28-9762-1C45EDE5E502} = {FD50E51A-E122-4CB8-A635-FC14385E208F}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {ECE5E3F9-1B3C-4CC3-8B4B-4D132CC8857A}
+	EndGlobalSection
+EndGlobal

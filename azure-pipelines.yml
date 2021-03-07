@@ -1,0 +1,36 @@
+resources:
+  repositories:
+    - repository: self
+      checkoutOptions:
+        submodules: true
+        lfs: true
+    - repository: shared
+      type: github
+      name: kritikos-io/.config
+
+trigger:
+  batch: true
+  branches:
+    include:
+      - master
+      - develop
+      - feature/*
+      - release/*
+      - hotfix/*
+  paths:
+    include:
+      - azure-pipelines.yml
+      - src/*
+      - tests/*
+
+stages:
+  - template: ci/azure-pipelines/stages/general/00. gitversion.yml
+    parameters:
+      updateAssemblyInfo: true
+  - template: ci/azure-pipelines/stages/dotnet/00. build.yml
+    parameters:
+      useCache: false
+      updateAssemblyInfo: true
+      publishWeb: false
+      buildOnLinux: true
+      packOnLinux: true
