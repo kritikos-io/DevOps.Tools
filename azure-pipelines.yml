@@ -59,6 +59,9 @@ stages:
       packagesToPush: '*.nupkg'
       artifact: nuget
       environmentPullRequest: Pull Requests
-      environmentRelease: Release
+
+      jobNamePullRequest: PullRequests
       feedNamePullRequest: Kritikos
+      environmentRelease: Release
+      jobNameRelease: Release
       feedNameRelease: Kritikos
