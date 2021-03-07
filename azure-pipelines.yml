@@ -52,6 +52,3 @@ stages:
       sonarOnLinux: true
       codecovOnLinux: true
       coverallsOnLinux: true
-      sonarOrganization: ${{ variables.sonarOrganization}}
-      sonarApiKey: ${{ variables.sonarApiKey }}
-      githubApiKey: ${{ variables.GitHubApiKey }}
