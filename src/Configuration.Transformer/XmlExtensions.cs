@@ -12,8 +12,10 @@ namespace Kritikos.Configuration.Transformer
       var s when s.Contains("connectionStrings", StringComparison.CurrentCultureIgnoreCase) => XmlNodeMode
         .ConnectionString,
       var s when s.Contains("appSettings", StringComparison.InvariantCultureIgnoreCase) => XmlNodeMode.AppSetting,
+      var s when s.Contains("client", StringComparison.InvariantCultureIgnoreCase) => XmlNodeMode.Endpoint,
+      _ => XmlNodeMode.Unsupported,
     };
-    
+
     public static readonly IReadOnlyDictionary<XmlNodeMode, string> IdentifierAttribute =
       new Dictionary<XmlNodeMode, string>
       {

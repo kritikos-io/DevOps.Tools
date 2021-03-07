@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Configuration.Transformer",
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{1AF1DDF3-2CC6-465F-BD8E-FE3982A5E689}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Configuration.Transformer.Tests", "tests\Configuration.Transformer.Tests\Configuration.Transformer.Tests.csproj", "{EDD8C83A-4C86-459F-94F6-4C0C495BDF2D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,12 +21,17 @@ Global
 		{989FC555-4EBE-4B28-9762-1C45EDE5E502}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{989FC555-4EBE-4B28-9762-1C45EDE5E502}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{989FC555-4EBE-4B28-9762-1C45EDE5E502}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EDD8C83A-4C86-459F-94F6-4C0C495BDF2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDD8C83A-4C86-459F-94F6-4C0C495BDF2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDD8C83A-4C86-459F-94F6-4C0C495BDF2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDD8C83A-4C86-459F-94F6-4C0C495BDF2D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{989FC555-4EBE-4B28-9762-1C45EDE5E502} = {FD50E51A-E122-4CB8-A635-FC14385E208F}
+		{EDD8C83A-4C86-459F-94F6-4C0C495BDF2D} = {1AF1DDF3-2CC6-465F-BD8E-FE3982A5E689}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {ECE5E3F9-1B3C-4CC3-8B4B-4D132CC8857A}

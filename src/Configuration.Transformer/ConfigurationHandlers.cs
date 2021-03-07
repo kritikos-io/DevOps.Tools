@@ -14,19 +14,6 @@ namespace Kritikos.Configuration.Transformer
 
   public static class ConfigurationHandlers
   {
-    private const string Filename = "accs-ac-settings.config";
-
-    private static readonly IEnumerable<KeyValuePair<string, string>> InMemory = new KeyValuePair<string, string>[]
-    {
-      new("accs-ac.appSettings.CBS_GetLoanPaymentDetailsUrl", Filename),
-      new("accs-ac.appSettings.CBS_LoanPaymentExecutionTimeout", Filename),
-      new("accs-ac.appSettings.CBS_LoanPaymentExecutionUrl", Filename),
-      new("accs-ac.appSettings.LISAExtensionChecks", Filename),
-      new("accs-ac.appSettings.PrepareLineForInterbank", Filename),
-      new("accs-ac.appSettings.PrepareLineForOrdered", Filename),
-      new("configuration.system.serviceModel.client.BusinessOnBoardingSOAP", Filename),
-    };
-
     public static string DeleteXmlKeys(
       ILogger logger,
       Stream input,
@@ -43,12 +30,20 @@ namespace Kritikos.Configuration.Transformer
         logger.LogDebug(LogTemplates.LocatingNode, key);
         var split = key.Split(".").Select(x => x.ToSelectedCasing(isCaseInsensitive)).ToArray();
 
-        var element = doc.LocateElement(split, key.ParseMode(), isCaseInsensitive);
+        var xmlNodeMode = key.ParseMode();
+
+        if (xmlNodeMode == XmlNodeMode.Unsupported)
+        {
+          logger.LogError(LogTemplates.UnsupportedNode, key);
+          continue;
+        }
+
+        var element = doc.LocateElement(split, xmlNodeMode, isCaseInsensitive);
 
         if (element is null)
         {
           logger.LogError(LogTemplates.MissingNode, key);
-          break;
+          continue;
         }
 
         logger.LogInformation(LogTemplates.DeletingNode, key);
@@ -73,7 +68,6 @@ namespace Kritikos.Configuration.Transformer
 
       var config = new ConfigurationBuilder()
         .AddEnvironmentVariables(prefix)
-        .AddInMemoryCollection(InMemory)
         .Build()
         .AsEnumerable()
         .Where(x => x.Value == input.Name)

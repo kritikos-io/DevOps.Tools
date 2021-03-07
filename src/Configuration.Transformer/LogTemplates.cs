@@ -10,6 +10,9 @@ namespace Kritikos.Configuration.Transformer
     // Error
     public const string MissingNode = "Could not target node identified by key {Node}";
 
+    public const string UnsupportedNode =
+      "Node {Node} not supported, only appSettings, connectionStrings and EndPoints are supported!";
+
     // Warning
 
     // Information

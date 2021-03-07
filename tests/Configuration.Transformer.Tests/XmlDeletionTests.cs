@@ -1,8 +1,10 @@
 namespace Kritikos.Configuration.Transformer.Tests
 {
   using System.Collections.Generic;
+  using System.Data.Common;
   using System.IO;
   using System.Text;
+  using System.Xml.Linq;
 
   using Microsoft.Extensions.Logging.Abstractions;
 
@@ -11,6 +13,9 @@ namespace Kritikos.Configuration.Transformer.Tests
   public class XmlDeletionTests
   {
     private const string Xml = @"<configuration>
+                                    <appSettings>
+                                      <add key=""Location"" value=""Home"" />
+                                    </appSettings>
                                     <location path=""forum"">
                                     <system.web>
                                       <customErrors mode=""RemoteOnly"" defaultRedirect=""forum-error.aspx"">
@@ -31,15 +36,15 @@ namespace Kritikos.Configuration.Transformer.Tests
 
       var config = new List<string>
       {
-        "accs-ac.appSettings.CBS_GetLoanPaymentDetailsUrl",
-        "accs-ac.appSettings.CBS_LoanPaymentExecutionTimeout",
-        "accs-ac.appSettings.CBS_LoanPaymentExecutionUrl",
-        "accs-ac.appSettings.LISAExtensionChecks",
-        "accs-ac.appSettings.PrepareLineForInterbank",
-        "accs-ac.appSettings.PrepareLineForOrdered",
+        "configuration.appSettings.location",
       };
 
-      //var foo = ConfigurationHandlers.DeleteXmlKeys(NullLogger.Instance, stream, config, "DELETE_", true);
+      var removed = ConfigurationHandlers.DeleteXmlKeys(NullLogger.Instance, stream, config, true);
+
+      var xdoc = XDocument.Parse(removed);
+      var element = xdoc.LocateElement(new[] { "configuration", "appSettings", "location" }, XmlNodeMode.AppSetting, true);
+
+      Assert.Null(element);
     }
   }
 }
