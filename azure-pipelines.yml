@@ -59,7 +59,7 @@ stages:
       dependsOn:
         - Build
         - Test
-      packagesToPush: $(Pipeline.Workspace)/${{ parameters.artifact }}/*.nupkg
+      packagesToPush: $(Pipeline.Workspace)/nuget/*.nupkg
       artifact: nuget
       environment-pr: Pull Requests
       environment-release: Release
