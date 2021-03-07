@@ -24,6 +24,11 @@ trigger:
       - src/*
       - tests/*
 
+variables:
+  - group: Environment
+  - group: DotNet
+  - group: ApiKeys
+
 stages:
   - template: /ci/azure-pipelines/stages/general/00. gitversion.yml@templates
     parameters:
@@ -34,4 +39,5 @@ stages:
       updateAssemblyInfo: true
       publishWeb: false
       buildOnLinux: true
+      buildOnWindows: true
       packOnLinux: true
