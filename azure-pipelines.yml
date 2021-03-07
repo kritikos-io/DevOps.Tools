@@ -64,3 +64,8 @@ stages:
       environmentRelease: Release
       jobNameRelease: Release
       feedNameRelease: NugetKritikos
+  - template: /ci/azure-pipelines/stages/dotnet/03. intellicode.yml@templates
+    parameters:
+      useCache: true
+      updateAssemblyInfo: true
+      branch: develop
