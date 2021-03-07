@@ -54,6 +54,11 @@ stages:
       sonarOnLinux: true
       codecovOnLinux: true
       coverallsOnLinux: true
+  - template: /ci/azure-pipelines/stages/dotnet/03. intellicode.yml@templates
+    parameters:
+      useCache: true
+      updateAssemblyInfo: true
+      branch: develop
   - template: /ci/azure-pipelines/stages/dotnet/02. nuget-deploy.yml@templates
     parameters:
       packagesToPush: '*.nupkg'
@@ -64,8 +69,3 @@ stages:
       environmentRelease: Release
       jobNameRelease: Release
       feedNameRelease: NugetKritikos
-  - template: /ci/azure-pipelines/stages/dotnet/03. intellicode.yml@templates
-    parameters:
-      useCache: true
-      updateAssemblyInfo: true
-      branch: develop
